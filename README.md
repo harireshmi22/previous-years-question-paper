@@ -1,44 +1,33 @@
 # Lucknow University Previous Year Papers
 
-A modern, minimal frontend project to browse Lucknow University previous year question papers with filtering, search, pagination, and responsive UI.
+A responsive, modern frontend project for exploring Lucknow University previous year question papers with smart filtering and clean UX.
 
-## Overview
+## Project Overview
 
-This project provides:
+This project includes two user-facing pages:
 
-- A polished homepage with sections like hero, features, papers, about, and footer
-- A dynamic paper listing with course/year/semester filters
-- A separate **Browse Papers** page for focused paper discovery
-- Modal-based paper preview and details flow on the homepage
-- Responsive layout optimized for desktop, tablet, and mobile
+- `index.html` (homepage): overview sections + featured paper browsing + modal preview/details.
+- `browse-papers.html`: dedicated paper discovery page with dynamic filtering and pagination.
 
-## Features
+The UI is built with a minimal, modern style and tuned for desktop, laptop, tablet, and mobile screens.
 
-- **Smart filtering** by:
-  - Course
-  - Year
-  - Semester
-- **Search support** for subject/course/exam type
-- **Pagination** for clean browsing
-- **Modern UI/UX** with minimal styling and smooth interactions
-- **Sticky navigation** with active section highlight
-- **Accessible patterns**:
-  - Skip link
-  - Focus handling for modals
-  - Keyboard escape support for overlays
+## Current Features
 
-## Project Structure
-
-```text
-previous-year-question-papers/
-├── index.html           # Main homepage
-├── browse-papers.html   # Separate browse page
-├── style.css            # Global styles
-├── script.js            # Homepage behavior and rendering
-├── browse-papers.js     # Browse page rendering and filters
-├── index.js             # Paper dataset + default filters
-└── README.md
-```
+- Dynamic paper rendering from a centralized dataset (`index.js`)
+- Search by subject/course/exam
+- Filters by:
+  - course
+  - year
+  - semester
+- Pagination for paper cards
+- Modern card-based layout
+- Responsive navigation and section layout
+- Dedicated Browse Papers page
+- Modal preview/details flow on homepage
+- Accessibility basics:
+  - skip link
+  - keyboard escape support for modals
+  - semantic sectioning and labels
 
 ## Tech Stack
 
@@ -46,42 +35,54 @@ previous-year-question-papers/
 - CSS3
 - Vanilla JavaScript (ES Modules)
 
-No external framework is required.
+No framework or build tool is required.
 
-## Getting Started
+## Folder Structure
 
-1. Clone or download the project.
-2. Open the folder in your editor.
-3. Run with a local server (recommended for ES module imports).
+```text
+previous-year-question-papers/
+├── index.html            # Homepage
+├── browse-papers.html    # Dedicated browse page
+├── style.css             # Shared global styles and responsive breakpoints
+├── index.js              # Paper dataset + default filter state
+├── script.js             # Homepage interactions and rendering
+├── browse-papers.js      # Browse page rendering/filter logic
+└── README.md
+```
 
-Example (VS Code Live Server or any static server):
+## Run Locally
+
+Use a local static server (recommended for module imports):
 
 ```bash
-# Python
 python -m http.server 5500
 ```
 
-Then open:
+Open:
 
 - `http://localhost:5500/index.html`
 
 ## Usage
 
-- On the homepage:
-  - Use course tabs and filters in the papers section
-  - Open paper details and preview via action buttons
-  - Click **Browse Papers** to open the dedicated browse page
+### Homepage (`index.html`)
 
-- On `browse-papers.html`:
-  - Search and filter through all available papers
-  - Navigate results with pagination
-  - Open paper links directly from cards
+- Navigate sections from top navbar.
+- Use the Papers section to search/filter quick results.
+- Open paper details or preview from card actions.
+- Use `Browse Papers` button to switch to full listing page.
 
-## Data Source
+### Browse Page (`browse-papers.html`)
 
-Paper records are currently stored in `index.js` as a static array (`papers`).
+- Use course tabs for quick category switching.
+- Apply search/year/semester filters.
+- Browse paginated cards and open paper links.
+- Use `Back to Home` button to return.
 
-Each record includes:
+## Data Model
+
+Paper records are stored in `index.js` under `papers`.
+
+Each paper object:
 
 - `id`
 - `course`
@@ -91,22 +92,27 @@ Each record includes:
 - `exam`
 - `link`
 
-You can update this array to add/edit papers.
+Update this dataset to add/edit papers.
 
-## Customization
+## Styling and Responsiveness
 
-- Update theme variables in `style.css` (`:root`) to change colors and spacing.
-- Edit section content in `index.html`.
-- Extend filter logic in `script.js` / `browse-papers.js`.
+- Theme tokens live in `:root` inside `style.css`.
+- Breakpoints currently cover:
+  - large desktop
+  - desktop/laptop
+  - tablet
+  - mobile
+  - small mobile
+- Layout, typography, navigation, and card grids are tuned across breakpoints.
 
-## Future Improvements
+## Future Enhancements
 
-- Connect to backend/database instead of static data
-- Add authentication and admin upload panel
-- Add paper download analytics
-- Add dark mode toggle
+- Backend/API integration for live paper data
+- Admin panel for uploading/managing papers
+- Authentication/authorization
+- Paper analytics and usage tracking
+- Dark mode support
 
 ## License
 
-This project is for educational use.  
-You can adapt and extend it for your own university paper archive.
+This project is intended for educational use and can be adapted for university paper archives.
