@@ -12,6 +12,8 @@ const emptyState = document.querySelector("#empty-state");
 const resultMeta = document.querySelector("#result-meta");
 const courseTabs = document.querySelector("#course-tabs");
 const paginationWrap = document.querySelector("#pagination");
+const menuToggle = document.querySelector("#browse-menu-toggle");
+const mainNav = document.querySelector("#browse-main-nav");
 
 function getUniqueValues(key, fallbackLabel, sortFn) {
   const values = [...new Set(papers.map((item) => item[key]))];
@@ -167,6 +169,48 @@ semesterFilter.addEventListener("change", (event) => {
   currentPage = 1;
   applyAndRender();
 });
+
+if (menuToggle && mainNav) {
+  menuToggle.setAttribute("aria-expanded", "false");
+  mainNav.classList.remove("is-open");
+
+  menuToggle.addEventListener("click", () => {
+    const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+    mainNav.classList.toggle("is-open", !isExpanded);
+  });
+
+  mainNav.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      menuToggle.setAttribute("aria-expanded", "false");
+      mainNav.classList.remove("is-open");
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!mainNav.classList.contains("is-open")) return;
+    const clickedInsideNav = mainNav.contains(event.target);
+    const clickedToggle = menuToggle.contains(event.target);
+    if (!clickedInsideNav && !clickedToggle) {
+      menuToggle.setAttribute("aria-expanded", "false");
+      mainNav.classList.remove("is-open");
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      menuToggle.setAttribute("aria-expanded", "false");
+      mainNav.classList.remove("is-open");
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) {
+      menuToggle.setAttribute("aria-expanded", "false");
+      mainNav.classList.remove("is-open");
+    }
+  });
+}
 
 initializeFilters();
 renderCourseTabs();

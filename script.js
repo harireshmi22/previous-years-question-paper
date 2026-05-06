@@ -600,6 +600,9 @@ if (detailOpenBtn) {
 }
 
 if (menuToggle && mainNav) {
+    menuToggle.setAttribute("aria-expanded", "false");
+    mainNav.classList.remove("is-open");
+
     menuToggle.addEventListener("click", () => {
         const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
         menuToggle.setAttribute("aria-expanded", String(!isExpanded));
@@ -618,6 +621,13 @@ if (menuToggle && mainNav) {
         const clickedInsideNav = mainNav.contains(event.target);
         const clickedToggle = menuToggle.contains(event.target);
         if (!clickedInsideNav && !clickedToggle) {
+            menuToggle.setAttribute("aria-expanded", "false");
+            mainNav.classList.remove("is-open");
+        }
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 900) {
             menuToggle.setAttribute("aria-expanded", "false");
             mainNav.classList.remove("is-open");
         }
