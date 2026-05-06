@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browse Papers | Lucknow University</title>
+  <meta name="description" content="Browse all Lucknow University previous year question papers with smart filters." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="browse-page">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <div class="brand">
+        <span class="brand-badge">LU</span>
+        <div>
+          <p class="brand-title">Lucknow University</p>
+          <p class="brand-subtitle">Previous Year Question Papers</p>
+        </div>
+      </div>
+      <nav class="nav-menu is-open" aria-label="Main navigation">
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="browse-papers.html" class="nav-link is-active" aria-current="page">Browse Papers</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </nav>
+      <a class="btn btn-secondary nav-cta" href="index.html">Back to Home</a>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Paper Library</p>
+        <h1>Browse all previous year papers</h1>
+        <p class="hero-text">Use filters to quickly find course-wise, semester-wise, and year-wise papers.</p>
+      </div>
+
+      <div class="papers-shell">
+        <div class="category-wrap" aria-label="Course categories">
+          <p class="category-title">Courses</p>
+          <div id="course-tabs" class="course-tabs" role="tablist" aria-label="Course tabs"></div>
+        </div>
+
+        <div class="filters" role="search" aria-label="Filter papers">
+          <label>
+            Search subject or paper
+            <input id="search-input" type="text" placeholder="e.g., Data Structures, Financial Accounting" />
+          </label>
+          <label>
+            Year
+            <select id="year-filter"></select>
+          </label>
+          <label>
+            Semester
+            <select id="semester-filter"></select>
+          </label>
+        </div>
+      </div>
+
+      <div id="result-meta" class="result-meta"></div>
+      <div id="paper-grid" class="paper-grid" aria-live="polite"></div>
+      <div id="pagination" class="pagination" aria-label="Papers pagination"></div>
+      <p id="empty-state" class="empty-state" hidden>No papers found. Try changing your filters.</p>
+    </div>
+  </main>
+
+  <script type="module" src="browse-papers.js"></script>
+</body>
+
+</html>

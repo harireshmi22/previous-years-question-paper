@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucknow University Previous Year Papers</title>
+  <meta name="description"
+    content="Access and explore Lucknow University previous year question papers for the last 10 years with smart filters and fast search." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="bg-orb orb-left" aria-hidden="true"></div>
+  <div class="bg-orb orb-right" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <div class="brand">
+        <span class="brand-badge">LU</span>
+        <div>
+          <p class="brand-title">Lucknow University</p>
+          <p class="brand-subtitle">Previous Year Question Papers</p>
+        </div>
+      </div>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"
+        aria-label="Open navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-menu" id="main-nav" aria-label="Main navigation">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#papers" class="nav-link">Previous Papers</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <a class="btn btn-secondary nav-cta" href="browse-papers.html">Browse Papers</a>
+    </div>
+  </header>
+
+  <section class="running-news">
+    <div class="container running-news-content">
+      <span class="running-news-label">📰 Latest Updates</span>
+      <div class="news-ticker">
+        <p class="news-item">✨ New papers added for BCA Semester 6 (2025)</p>
+        <p class="news-item">📅 BBA Mid-Term papers now available</p>
+        <p class="news-item">
+          🎓 Improved search filters for better navigation
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <main id="main-content">
+    <section class="hero section" id="home">
+      <div class="hero-background"></div>
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <p class="eyebrow">Academic Resource Hub</p>
+          <h1>
+            Prepare smarter with
+            <span class="text-gradient">10 years of LU papers</span>
+          </h1>
+          <p class="hero-text">
+            Find department-wise, subject-wise, and year-wise previous
+            question papers in one clean dashboard. Filter instantly and start
+            practicing with confidence.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#papers">Start Exploring</a>
+            <a class="btn btn-secondary" href="#how-it-works">How it works</a>
+          </div>
+          <div class="stats" id="stats"></div>
+        </div>
+
+        <aside class="hero-visual reveal" aria-label="Dashboard preview">
+          <div class="visual-card">
+            <p class="visual-label">Quick Access</p>
+            <h2>Latest Papers</h2>
+            <ul id="quick-papers" class="quick-papers"></ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="features section section-alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Why Choose Us</p>
+          <h2>A Minimal Platform Built for Focused Preparation</h2>
+        </div>
+        <div class="features-grid">
+          <article class="feature-card reveal">
+            <p class="feature-tag">Discover Faster</p>
+            <h3>Precise Search and Filters</h3>
+            <p>Find the exact paper in seconds with smart filters for course, year, and semester.</p>
+          </article>
+          <article class="feature-card reveal">
+            <p class="feature-tag">Use Anywhere</p>
+            <h3>Fully Responsive Experience</h3>
+            <p>Browse, preview, and download papers comfortably on desktop, tablet, or mobile.</p>
+          </article>
+          <article class="feature-card reveal">
+            <p class="feature-tag">Practice Better</p>
+            <h3>Instant Preview Workflow</h3>
+            <p>Open papers instantly, review quickly, and build an efficient revision routine.</p>
+          </article>
+          <article class="feature-card reveal">
+            <p class="feature-tag">Learn Confidently</p>
+            <h3>Curated 10+ Year Collection</h3>
+            <p>Access a clean, organized archive of previous papers in one structured library.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="papers" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Quick Access</p>
+          <h2>Recent Papers</h2>
+        </div>
+
+        <div class="papers-shell reveal">
+          <div class="category-wrap" aria-label="Course categories">
+            <p class="category-title">Popular Courses</p>
+            <div id="course-tabs" class="course-tabs" role="tablist" aria-label="Course tabs"></div>
+          </div>
+
+          <div class="filters" role="search" aria-label="Filter papers">
+            <label>
+              Search subject or paper
+              <input id="search-input" type="text" placeholder="e.g., Data Structures, Medieval History" />
+            </label>
+            <label>
+              Year
+              <select id="year-filter"></select>
+            </label>
+            <label>
+              Semester
+              <select id="semester-filter"></select>
+            </label>
+          </div>
+        </div>
+
+        <div id="result-meta" class="result-meta reveal"></div>
+        <div id="paper-grid" class="paper-grid" aria-live="polite"></div>
+        <div id="pagination" class="pagination" aria-label="Papers pagination"></div>
+        <p id="empty-state" class="empty-state" hidden>
+          No papers found. Try changing your filters.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">About Us</p>
+          <h2>Why choose our platform</h2>
+        </div>
+        <div class="review-grid">
+          <article class="review-card reveal">
+            <div class="review-icon">👥</div>
+            <h3><span class="bold">Who We Are</span></h3>
+            <p>
+              A dedicated community of Lucknow University students and
+              educators committed to making exam preparation accessible,
+              organized, and stress-free for every student.
+            </p>
+          </article>
+          <article class="review-card reveal">
+            <div class="review-icon">🎯</div>
+            <h3><span class="bold">Solving Problems</span></h3>
+            <p>
+              We understand scattered resources, lost papers, and disorganized
+              study materials waste valuable time. Our platform centralizes
+              all question papers in one searchable, filterable space.
+            </p>
+          </article>
+          <article class="review-card reveal">
+            <div class="review-icon">⚙️</div>
+            <h3><span class="bold">How It Works</span></h3>
+            <p>
+              Simple, smart, and student-focused. Choose your course, filter
+              by year and semester, preview papers instantly, and download
+              with one click for offline practice anytime.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">How It Works</p>
+          <h2>Simple flow, focused preparation</h2>
+        </div>
+        <div class="steps-grid">
+          <article class="step-card reveal">
+            <span class="step-number">1</span>
+            <h3>Choose your program</h3>
+            <p>Switch between BCA, BBA, BCom, and BJMC course tabs.</p>
+          </article>
+          <article class="step-card reveal">
+            <span class="step-number">2</span>
+            <h3>Apply year and semester</h3>
+            <p>
+              Narrow down to exact session paper sets from the last 10 years.
+            </p>
+          </article>
+          <article class="step-card reveal">
+            <span class="step-number">3</span>
+            <h3>Open and practice</h3>
+            <p>
+              Preview and download papers to build exam confidence quickly.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-wrap">
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="browse-papers.html">Browse Papers</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="#papers">Browse Question Papers</a></li>
+          <li><a href="#papers">Filter by Semester</a></li>
+          <li><a href="#papers">Search Papers</a></li>
+          <li><a href="#papers">PDF Preview</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Our Vision</h4>
+        <p class="footer-vision">
+          To empower every Lucknow University student with accessible,
+          organized, and comprehensive question papers to excel in their
+          academic journey.
+        </p>
+      </div>
+      <div class="footer-section">
+        <h4>Get in Touch</h4>
+        <p class="footer-contact">
+          Have suggestions or found a missing paper?
+          <a href="mailto:support@lupapers.com">Email us</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>
+          Built for Lucknow University students. © 2025 All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="paper-modal" class="paper-modal" role="dialog" aria-modal="true" aria-labelledby="paper-modal-title"
+    aria-describedby="paper-modal-meta" aria-hidden="true" hidden>
+    <div class="paper-modal-dialog">
+      <div class="paper-modal-head">
+        <div>
+          <h3 id="paper-modal-title">Question Paper Preview</h3>
+          <p id="paper-modal-meta" class="paper-modal-meta"></p>
+        </div>
+        <button id="paper-modal-close" class="icon-close" type="button" aria-label="Close preview">
+          ×
+        </button>
+      </div>
+      <div class="paper-modal-actions">
+        <button id="paper-modal-download" class="btn btn-primary" type="button">
+          Download PDF
+        </button>
+        <a id="paper-modal-open-new" class="btn btn-secondary" href="#" target="_blank" rel="noopener noreferrer">Open
+          in New Tab</a>
+      </div>
+      <iframe id="paper-modal-frame" class="paper-modal-frame" title="Question paper PDF preview"></iframe>
+    </div>
+  </div>
+
+  <div id="paper-detail-modal" class="paper-detail-modal" role="dialog" aria-modal="true"
+    aria-labelledby="detail-modal-title" aria-hidden="true" hidden>
+    <div class="paper-detail-dialog">
+      <button id="detail-modal-close" class="detail-close-btn" type="button" aria-label="Close details">
+        ✕
+      </button>
+      <div class="detail-content">
+        <div class="detail-header">
+          <div class="detail-badge" id="detail-badge"></div>
+          <h2 id="detail-modal-title" class="detail-title"></h2>
+        </div>
+
+        <div class="detail-grid">
+          <div class="detail-item">
+            <span class="detail-label">Course</span>
+            <p class="detail-value" id="detail-course"></p>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Year</span>
+            <p class="detail-value" id="detail-year"></p>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Semester</span>
+            <p class="detail-value" id="detail-semester"></p>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Exam Type</span>
+            <p class="detail-value" id="detail-exam"></p>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <h3>About This Paper</h3>
+          <p id="detail-description" class="detail-description">
+            This question paper is designed to assess your understanding of
+            the subject. It contains comprehensive questions covering all
+            major topics and concepts taught during the semester.
+          </p>
+        </div>
+
+        <div class="detail-section">
+          <h3>How to Use</h3>
+          <ul class="detail-tips">
+            <li>Read all questions carefully before starting</li>
+            <li>Allocate time wisely for each question</li>
+            <li>Practice multiple times for better retention</li>
+            <li>Compare your answers with model solutions</li>
+          </ul>
+        </div>
+
+        <div class="detail-actions">
+          <button id="detail-open-btn" class="btn btn-primary" type="button" data-paper-id="">
+            View PDF
+          </button>
+          <a href="#papers" id="detail-back-btn" class="btn btn-secondary">
+            Back to Papers
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+
+</html>
